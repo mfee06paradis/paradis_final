@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap匯入 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script scr="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- CSS匯入 -->
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <% //console.log(productSorts); %>
+
+    <div class="container-fluid outerMostDiv">
+        <!-- 表頭區塊 -->
+        <div class="row" style="border: 1px solid black">
+            <div class="col-2"></div>
+            <div class="col-8 header">
+                <p>............</p>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-8 ad">
+                <p>............</p>
+            </div>
+
+        </div>
+        <!-- 商品區塊 -->
+        <div class="row" style=" border: 1px solid black">
+            <div class="col-2"></div>
+            <div class="col-8 buttonDiv">
+                <button>A</button>
+                <button>A</button>
+                <button>A</button>
+            </div>
+            <div class="col-2"></div>
+
+            <div class="col-2"></div>
+            <div class="col-8" style="background-color: aqua; padding: 0;">
+
+                <% if(productSorts.length > 0){ %>
+
+                    <div class="row product_wrap">
+                        <% for(let ps of productSorts){ %>
+                            <div class="col-4 product">
+                                <div class="card">
+                                    <img class="card-img-top" src="/img/AFGHAN RED.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= ps.companyId //TODO: 改 companyName%> </h5>
+                                        <h5 class="card-title"><%= ps.productSortName %></h5>
+                                        <p class="card-text">NT <%= ps.unitPrice %></p>
+                                        <a href="/products/<%= // productId :123/ %> ">
+                                            <button class="btn btn-primary">加入購物車</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+
+                    </div>
+
+                <% } else { %>
+                    <h1> No productSort found! </h1>
+                <% } %>
+            </div>
+            <div class="col-2"></div>
+
+            <div class="col-2 ml-auto"></div>
+            <div class="col-8" style="background-color: aqua; padding: 0;">
+                <div class="row product_wrap">
+                    <div class="col-4 product">
+                        <div class="product-custom"></div>
+                    </div>
+                    <div class="col-4 product">
+                        <div class="product-custom"></div>
+                    </div>
+                    <div class="col-4 product">
+                        <div class="product-custom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 mr-auto"></div>
+
+        </div>
+        <!-- 頁尾區域 -->
+        <div class="footer">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

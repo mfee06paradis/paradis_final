@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS檔 匯入 -->
+    <!-- bootstrap匯入 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- 自訂 CSS -->
+    <link rel="stylesheet" href="/css/product-detail.css">
+    <link rel="stylesheet" href="/css/my_carousel.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/jquery/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <%
+        let productDetail = productDetails[0];
+        const productIds = new Array();
+        const arrColors = new Array();
+        const arrUnitInStock = new Array();
+
+        for(let i = 0; i < productDetails.length; i++){
+            productIds.push(productDetails[i].productId);
+            arrColors.push(productDetails[i].color);
+            arrUnitInStock.push(productDetails[i].unitsInStock);
+
+            console.log(productDetails[i].productId + ' ++ ' + productDetails[i].color + '\n');
+        }
+    %>
+
+    <div class="">
+        <!-- 表頭區塊 -->
+        <div class="row" style="border: 1px solid black">
+            <div class="col-2"></div>
+            <div class="col-8 header">
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <!-- 商品細節區塊 -->
+        <div class="row" style="border: 1px solid black">
+            <div class="col-2"></div>
+            <div class="col-8 p_detail_outer">
+                <div class="p_detail_customOut">
+
+                    <!-- 商品內容  第一部分  [商品名稱]  [商品圖片] -->
+                    <div class="row p_detail_wrap">
+                        <!-- 商品細節 左邊部分 -->
+                        <div class="col-6 p_detail">
+                            <div class="" style="outline: 1px solid black;">
+                                <h5 class="card-title"><%= productDetail.companyName %></h5>
+                                <!-- <h5 class="card-title"><%= productDetail.companyName %></h5> -->
+                                <h5 class="card-title"><%= productDetail.productName %></h5>
+
+                                <div class="">
+                                    <button><%= arrColors[0] %></button>
+                                </div>
+                                <h5 class="card-title" style="margin: 20px 0; "><%= productDetail.unitPrice %></h5>
+                                <div class="">
+                                    <button>數量 <%= arrUnitInStock[0] %></button>
+                                </div>
+                                <div class="">
+                                    <button>加入購物車</button>
+                                </div>
+
+
+                                <!-- 商品介紹、商品特色 -->
+                                <div class="accordion accordion_height" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne" style="padding-left: 0;">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                    data-target="#collapseOne" aria-expanded="true"
+                                                    aria-controls="collapseOne" style="padding: 0; margin: 0;">
+                                                    商品介紹
+                                                </button>
+                                            </h2>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body overflow-auto max_height">
+                                                <%= productDetail.productDetail %> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed" type="button"
+                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                    商品特色
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body overflow-auto max_height">
+                                               <%= productDetail.productFeature %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed" type="button"
+                                                    data-toggle="collapse" data-target="#collapseThree"
+                                                    aria-expanded="false" aria-controls="collapseThree">
+                                                    使用方法
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body overflow-auto max_height">
+                                                <%= productDetail.productInstruction %>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 商品細節 右邊部分 -->
+                        <div class="col-6 p_detail">
+                            <!-- [最新 or 暢銷]、我的最愛 按鈕-->
+                            <div class="" style="background-color: blueviolet;">
+                                <button>最新</button>
+                                <button style=" float: right;">最愛</button>
+                            </div>
+                            <div class="">
+                                <img class="img-fluid" src="/img/AFGHAN RED.jpg">
+                            </div>
+
+                            <div class="" style="height: 150px; outline: 1px solid black;">
+
+                            </div>
+
+                            <div class="" style="height: 150px; outline: 1px solid black;">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 商品內容  第一部分  [活動]  [價格、購物車、色票] -->
+
+
+                    <!-- 商品海報 -->
+                    <div class="" style="height: 300px; background-color: lawngreen;">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home"
+                                    style="background-color: aqua;">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="home" style="padding: 0; margin: 0;">
+                                <div class="" style="width: 200px;">
+                                    <img class="img-fluid" src="/img/AFGHAN RED.jpg" style="max-height: 100%;">
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="menu1" style="padding: 0; margin: 0;">
+
+                            </div>
+                            <div class="tab-pane container fade" id="menu2">...</div>
+                        </div>
+                    </div>
+
+                    <!-- 相關商品 -->
+                    <div class="" style="text-align: center;">
+                        <p>關聯商品</p>
+                    </div>
+                    <div class="container" style="padding: 0;">
+                        <div class="carousel slide multi-item-carousel" id="theCarousel">
+                            <div class="carousel-inner row w-100 mx-auto">
+                                <div class="carousel-item active col-md-4">
+                                    <img src="https://via.placeholder.com/300/f44336/000000?text=1"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/e91e63/000000?text=2"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/9c27b0/000000?text=3"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/673ab7/000000?text=4"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/4caf50/000000?text=5"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/8bc34a/000000?text=6"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/ffffff/000000?text=7"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                                <div class="carousel-item col-md-4">
+                                    <img src="https://via.placeholder.com/300/000000/ffffff?text=8"
+                                        class="img-fluid mx-auto d-block">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#theCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#theCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <script src="/js/my_carousel.js"></script>
+
+                    <!-- 評論 -->
+                    <div class="">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+
+
+        <!-- 頁尾區域 -->
+        <div class="footer">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

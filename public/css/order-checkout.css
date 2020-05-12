@@ -1,0 +1,108 @@
+.outerMostDiv {
+  background-color: white;
+  padding: 0;
+}
+
+.header {
+  background-color: olivedrab;
+  height: 100px;
+}
+
+.no_padding {
+  padding: 0;
+}
+
+.gird_main_right {
+  padding: 0;
+  padding-left: 30px;
+}
+
+.gird_main_left {
+  padding: 20px;
+  outline: 1px solid black;
+}
+
+.main_right {
+  height: 300px;
+  background-color: goldenrod;
+}
+
+.o_checkout_outer {
+  padding: 20px;
+  outline: 1px solid black;
+}
+
+.o_checkout_customOut {
+  /* margin: 20px; */
+  background-color: aqua;
+}
+
+.title {
+  text-align: center;
+  outline: 1px solid black;
+}
+
+.form_input {
+  width: 90%;
+}
+
+.background_from {
+  background-color: olivedrab;
+  padding: 20px;
+}
+
+.creditCard {
+}
+
+/* ============================== */
+.p_detail_wrap {
+  margin: 0 -30px;
+  margin-bottom: 60px;
+}
+
+.p_detail {
+  padding: 0 30px;
+}
+
+.p_detail_custom {
+  height: 300px;
+  background-color: hotpink;
+}
+
+.accordion_height {
+  height: 455px;
+  background-color: darkgreen;
+}
+
+.buttonDiv {
+  padding: 0;
+}
+
+.menuDiv {
+}
+
+.product_wrap {
+  /* box-sizing: border-box; */
+  margin: 0px -15px;
+  margin-bottom: 30px;
+}
+
+.product {
+  padding: 0 15px;
+}
+
+.product-custom {
+  outline: 1px solid black;
+  margin: 0 px;
+  height: 300px;
+  background-color: blanchedalmond;
+}
+
+.max_height {
+  height: 200px;
+}
+
+.footer {
+  height: 100px;
+  background-color: green;
+}

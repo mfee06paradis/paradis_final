@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS檔 匯入 -->
+    <!-- bootstrap匯入 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- 自訂 CSS -->
+    <link rel="stylesheet" href="/css/order-cart.css">
+    <link rel="stylesheet" href="/css/my_carousel.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/jquery/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="main">
+        <!-- 表頭區塊 -->
+        <div class="row" style="border: 1px solid black">
+            <div class="col-2"></div>
+            <div class="col-8 header">
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <!-- 主要內容區塊 -->
+        <div>
+
+            <!-- 主要內容-1 -->
+            <div class="row" style="border: 1px solid black">
+                <div class="col-1 p-0"></div>
+                <!-- 購物袋區塊 -->
+                <div class="col-8 gird_main_left">
+                    <div class="o_checkout_customOut">
+
+                        <div class="title">
+                            <h1>購物袋</h1>
+                        </div>
+
+                        <div class="" style="background-color: gray;">
+                            <div class="row">
+                                <div class="col-5">
+                                    <button>
+                                        繼續購物
+                                    </button>
+                                </div>
+                                <div class="col-2 title">
+                                    <h2>購物項目</h2>
+                                </div>
+                            </div>
+                            <div class="col-5"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                        <table class="table table-borderless" id="productTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">商品</th>
+                                    <th scope="col">單價</th>
+                                    <th scope="col">數量</th>
+                                    <th scope="col">總金額</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <!-- ### -->
+                                <% if(cartItems.length > 0){ %>
+                                    <% for(let cartItem of cartItems){ %>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="card mb-3" style="max-width: 540px;">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-4">
+                                                            <img src="/img/AFGHAN RED.jpg" class="card-img">
+                                                        </div>
+                                                        <div class="col-md-8 gird_card_body">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><%= cartItem.productName %></h5>
+                                                                <h5 class="card-title"><%= cartItem.color %></h5>
+                                                                <p class="card-text"><%= cartItem.companyName %></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td class="td_center" style="vertical-align: middle;">
+                                                <span class="">
+                                                    NT.<%= cartItem.unitPrice %>
+                                                </span>
+                                            </td>
+                                            <td style="vertical-align: middle;">
+                                                <input type="number" class="form-control input_number" value=<%= cartItem.amount %> min="1"
+                                                    max="100" onchange="updateAmount(this)">
+                                            </td>
+                                            <td style="vertical-align: middle;">
+                                                <div class="">
+                                                    NT.<%= cartItem.unitPrice * cartItem.amount %>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align: middle;">
+                                                <button onclick="delete_row(this)" class="delete" data-item="1" data-id="20">
+                                                    X
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                <% } %>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+                <!-- 主要區塊『右邊』 -->
+                <div class="col-2 " style="padding-left: 30px;">
+                    <div class="main_right">
+                        <div class="card">
+
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapse33" aria-expanded="true"
+                                        class="">
+                                        <i class="icon-action fa fa-chevron-down"></i>
+                                        <h6 class="">活動代碼</h6>
+                                    </a>
+                                </header>
+                                <div class="filter-content collapse show" id="collapse33" style="">
+                                    <div class="card-body">
+                                        <input type="text" class="form-control form_input" id="name" name="name">
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapse44" aria-expanded="false"
+                                        class="collapsed">
+                                        <i class="icon-action fa fa-chevron-down"></i>
+                                        <h6 class="">訂單摘要</h6>
+                                    </a>
+                                </header>
+                                <div class="filter-content collapse" id="collapse44" style="">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt deserunt mollit anim id est laborum. </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapse55" aria-expanded="false"
+                                        class="collapsed">
+                                        <i class="icon-action fa fa-chevron-down"></i>
+                                        <h6 class="">聯絡我們</h6>
+                                    </a>
+                                </header>
+                                <div class="filter-content collapse" id="collapse55" style="">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt deserunt mollit anim id est laborum. </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <a href="#" data-toggle="collapse" data-target="#collapse66" aria-expanded="false"
+                                        class="collapsed">
+                                        <i class="icon-action fa fa-chevron-down"></i>
+                                        <h6 class="">常見問題</h6>
+                                    </a>
+                                </header>
+                                <div class="filter-content collapse" id="collapse66" style="">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt deserunt mollit anim id est laborum. </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 p-0"></div>
+            </div>
+            <!-- 主要內容-2 -->
+            <div class="row" style="border: 1px solid black">
+                <div class="col-1 p-0"></div>
+
+                <!-- 購物明細區塊 -->
+                <div class="col-10 gird_order_details">
+                    <div class="order_detail_wrap">
+                        <div class="order_detail">
+
+                            <div class="title">
+                                <h1>購物明細</h1>
+                            </div>
+
+                            <div class="order_detail_total">
+
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">購買小記</label>
+
+                                    <%
+                                    let originalTotal = 0;
+                                    let allDiscount = 0;
+                                    for(cartItem of cartItems){
+                                        originalTotal += parseInt(cartItem.unitPrice) * parseInt(cartItem.amount);
+                                        // console.log("======" + cartItem.unitPrice + "---" + cartItem.amount);
+                                    }
+                                    let discountPrice = originalTotal - allDiscount;
+                                    %>
+                                    <label id="originalTotal" class="col-sm-6 col-form-label">NT.<%= originalTotal %> </label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">折扣優惠</label>
+                                    <label class="col-sm-6 col-form-label">NT.0 <%= //TODO: %> </label>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <label class="col-sm-6 col-form-label">消費總金額</label>
+                                    <label id="discountPrice" class="col-sm-6 col-form-label">NT.<%= discountPrice %></label>
+                                </div>
+                            </div>
+
+                            <div class="" style="background-color: blueviolet;">
+                                <button>繼續購物</button>
+                                <button type="submit" style=" float: right;">繼續結帳</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 p-0"></div>
+            </div>
+        </div>
+        </form>
+
+        <!-- 頁尾區域 -->
+        <div class="footer">
+
+        </div>
+
+
+        <script>
+            function delete_row(elem) {
+                let table = document.getElementById("productTable");
+                // let row = elem.dataset.item;
+                console.log(elem.parentNode.parentNode);
+                table.deleteRow(elem.parentNode.parentNode.rowIndex);
+            }
+
+            // $(".delete").on('click', function (event) {
+            //     $(this).parents('tr').remove();
+            // });
+
+            function updateAmount(elem) {
+
+                let table = document.getElementById("productTable");
+
+
+                let amount = elem.value;
+                console.log("amount " + amount + "--- index " + elem.parentNode.parentNode.rowIndex);
+
+                var url = 'http://localhost:3000/cart/3';
+                var data = { username: 'example',
+                            'aaa': 'vvv' };
+
+                fetch(url, {
+                    method: 'PUT', // or 'PUT'
+                    body: JSON.stringify(data), // data can be `string` or {object}!
+                    headers: new Headers({
+                        'Content-Type': 'application/json'
+                    })
+                })
+                .then(res => {
+                    res.json();
+                    console.log('222');
+                    table.style.backgroundColor = "yellow";
+
+
+                })
+                .catch(error => console.error('Error:', error));
+
+                table.style.backgroundColor = "green";
+
+
+                updateUIAfterAmountChanged(elem); //TODO: 放到then裡面
+
+            }
+
+            function updateUIAfterAmountChanged(elem){
+                let newAmount = elem.value;
+
+                let indexOfCart = parseInt(elem.parentNode.parentNode.rowIndex - 1);
+
+                let lb_discountPrice = document.getElementById("discountPrice");
+                let lb_originalPrice = document.getElementById("originalTotal");
+
+                let div_newItemPrice = elem.parentNode.nextElementSibling.firstElementChild;
+
+                let div_originalPrice = elem.parentNode.previousElementSibling.firstElementChild;
+                let originalPrice = parseInt(div_originalPrice.innerHTML.replace("NT.", ""));
+
+
+                // div_newItemPrice.innerHTML = "NT."+parseInt("<%= cartItems[0].unitPrice %>") * elem.value;
+                div_newItemPrice.innerHTML = "NT." + originalPrice * elem.value;
+
+                // lb_originalPrice.innerHTML = "NT." + ;
+                // lb_discountPrice.innerHTML = "NT." + ;
+
+
+
+                // lb_discountPrice.innerHTML = 0;
+                // lb_originalPrice.innerHTML = 0;
+                // console.log("<%= cartItems %>");
+                console.log(originalPrice);
+
+
+                // console.log("777 + " + cartItems); //抓不到 cartItems
+            }
+
+        </script>
+
+</body>
+
+</html>

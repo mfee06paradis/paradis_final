@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS檔 匯入 -->
+    <!-- bootstrap匯入 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- 自訂 CSS -->
+    <link rel="stylesheet" href="/css/order-checkout.css">
+    <link rel="stylesheet" href="/css/my_carousel.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/jquery/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <form>
+        <div class="main">
+            <!-- 表頭區塊 -->
+            <div class="row" style="border: 1px solid black">
+                <div class="col-2"></div>
+                <div class="col-8 header">
+
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <!-- 主要內容區塊 -->
+            <div>
+                <div class="row" style="border: 1px solid black">
+                    <div class="col-1 p-0"></div>
+                    <div class="col-8 gird_main_left">
+                        <div class="o_checkout_customOut">
+
+                            <div class="title">
+                                <h1>結帳</h1>
+                            </div>
+
+                            <div class="" style="background-color: gray;">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <button>
+                                            回前頁
+                                        </button>
+                                    </div>
+                                    <div class="col-2 title">
+                                        <h1>付款資訊</h1>
+                                    </div>
+                                </div>
+                                <div class="col-5"></div>
+                            </div>
+
+                            <div class="" style="background-color: greenyellow; height: 50px;">
+
+                            </div>
+
+                            <div class="background_from">
+
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">姓名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" id="name" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="cellphone" class="col-sm-2 col-form-label">手機</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" pattern="[0-9()#\-]{7,20}"
+                                            maxlength="20" id="cellphone" name="cellphone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-sm-2 col-form-label">市話</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" pattern="[0-9()#\-]{7,20}"
+                                            maxlength="20" id="phone" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address" class="col-sm-2 col-form-label">地址</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group row">
+                                            <div class="col-6">
+                                                <label for="FormControlSelect1">縣市</label>
+                                                <div style="display: inline-block;">
+                                                    <select class="form-control" id="leFormControlSelect1">
+                                                        <option>台中市</option>
+                                                        <option>台北市</option>
+                                                        <option>高雄市</option>
+                                                        <option>屏東縣</option>
+                                                        <option>彰化縣</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="FormControlSelect2">鄉鎮</label>
+                                                <div style="display: inline-block;">
+                                                    <select class="form-control" id="FormControlSelect2">
+                                                        <option>湖口鄉</option>
+                                                        <option>大湖鄉</option>
+                                                        <option>芬園鄉</option>
+                                                        <option>瑞穗鄉</option>
+                                                        <option>名間鄉</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control form_input" id="address" name="address">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="title">
+                                <h1 style="margin: 0;">發票選項</h1>
+                            </div>
+                            <div class="title">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">個人電子發票</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">捐贈發票</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio3" value="option3">
+                                    <label class="form-check-label" for="inlineRadio3">公司電子發票</label>
+                                </div>
+                            </div>
+
+                            <div class="title">
+                                <h1>信用卡</h1>
+                            </div>
+                            <div class="creditCard">
+                                <div class="row">
+
+                                    <div class="col-3"></div>
+                                    <div class="col-3">
+                                        <!-- 信用卡號 -->
+                                        <div class="form-group row">
+                                            <label for="FormControlSelect3" class="col-sm-3 col-form-label">卡號</label>
+                                            <div class="col-sm-9 p-0">
+                                                <select class="form-control col-form-label" id="FormControlSelect3">
+                                                    <option>378148414762840</option>
+                                                    <option>363891861330408</option>
+                                                    <option>355897841035975</option>
+                                                    <option>377413051338903</option>
+                                                    <option>340302116900035</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <!-- 安全檢查碼 -->
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-3 col-form-label">安全碼</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control form_input" id="name"
+                                                    name="name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3"></div>
+                                </div>
+                            </div>
+
+                            <div class="title">
+                                <h1>收貨地址</h1>
+                            </div>
+
+                            <div class="background_from">
+
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">姓名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" id="name" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="cellphone" class="col-sm-2 col-form-label">手機</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" pattern="[0-9()#\-]{7,20}"
+                                            maxlength="20" id="cellphone" name="cellphone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-sm-2 col-form-label">市話</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form_input" pattern="[0-9()#\-]{7,20}"
+                                            maxlength="20" id="phone" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address" class="col-sm-2 col-form-label">地址</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group row">
+                                            <div class="col-6">
+                                                <label for="FormControlSelect1">縣市</label>
+                                                <div style="display: inline-block;">
+                                                    <select class="form-control" id="leFormControlSelect1">
+                                                        <option>台中市</option>
+                                                        <option>台北市</option>
+                                                        <option>高雄市</option>
+                                                        <option>屏東縣</option>
+                                                        <option>彰化縣</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="FormControlSelect2">鄉鎮</label>
+                                                <div style="display: inline-block;">
+                                                    <select class="form-control" id="FormControlSelect2">
+                                                        <option>湖口鄉</option>
+                                                        <option>大湖鄉</option>
+                                                        <option>芬園鄉</option>
+                                                        <option>瑞穗鄉</option>
+                                                        <option>名間鄉</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control form_input" id="address" name="address">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-check" style="text-align: center; background-color: hotpink;">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    本訂單是一份禮物
+                                </label>
+                            </div>
+                            <div class="form-check" style="text-align: center; background-color: hotpink;">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    我已閱讀並同意電子商務條款
+                                </label>
+                            </div>
+                            <div class="" style="text-align: center;">
+                                <button type="submit" class="btn btn-primary">確定送出</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-2 " style="padding-left: 30px;">
+                        <div class="main_right">
+
+                            <div class="card">
+
+                                <article class="card-group-item">
+                                    <header class="card-header">
+                                        <a href="#" data-toggle="collapse" data-target="#collapse33"
+                                            aria-expanded="true" class="">
+                                            <i class="icon-action fa fa-chevron-down"></i>
+                                            <h6 class="">活動代碼</h6>
+                                        </a>
+                                    </header>
+                                    <div class="filter-content collapse show" id="collapse33" style="">
+                                        <div class="card-body">
+                                            <input type="text" class="form-control form_input" id="name" name="name">
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="card-group-item">
+                                    <header class="card-header">
+                                        <a href="#" data-toggle="collapse" data-target="#collapse44"
+                                            aria-expanded="false" class="collapsed">
+                                            <i class="icon-action fa fa-chevron-down"></i>
+                                            <h6 class="">訂單摘要</h6>
+                                        </a>
+                                    </header>
+                                    <div class="filter-content collapse" id="collapse44" style="">
+                                        <div class="card-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt deserunt mollit anim id est laborum. </p>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="card-group-item">
+                                    <header class="card-header">
+                                        <a href="#" data-toggle="collapse" data-target="#collapse55"
+                                            aria-expanded="false" class="collapsed">
+                                            <i class="icon-action fa fa-chevron-down"></i>
+                                            <h6 class="">聯絡我們</h6>
+                                        </a>
+                                    </header>
+                                    <div class="filter-content collapse" id="collapse55" style="">
+                                        <div class="card-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt deserunt mollit anim id est laborum. </p>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="card-group-item">
+                                    <header class="card-header">
+                                        <a href="#" data-toggle="collapse" data-target="#collapse66"
+                                            aria-expanded="false" class="collapsed">
+                                            <i class="icon-action fa fa-chevron-down"></i>
+                                            <h6 class="">常見問題</h6>
+                                        </a>
+                                    </header>
+                                    <div class="filter-content collapse" id="collapse66" style="">
+                                        <div class="card-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt deserunt mollit anim id est laborum. </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1 p-0"></div>
+                </div>
+            </div>
+    </form>
+
+    <!-- 頁尾區域 -->
+    <div class="footer">
+
+    </div>
+
+
+</body>
+
+</html>
