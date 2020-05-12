@@ -62,7 +62,7 @@ router.put('/update', (req, res)=>{
         error: '',
     };
 
-    const sql = "UPDATE `member` SET `memberName` = ?, `memberSex` = ?, `memberBirthday`=?, `memberPhone` = ?, `memberAddress`=? WHERE `memberId` = ?";
+    const sql = "UPDATE `member` SET `memberName` = ?, `memberSex` = ?, `memberBirthday`=?, `memberPhone` = ?, `memberAddress`=?, `avatar`=? WHERE `memberId` = ?";
 
     db.execute(sql, [
         req.body.name,
@@ -70,6 +70,7 @@ router.put('/update', (req, res)=>{
         req.body.birthday,
         req.body.phone,
         req.body.addressData,
+        req.body.avatar,
         req.body.memberID
     ])
         .then(results=>{
